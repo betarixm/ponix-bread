@@ -1,0 +1,61 @@
+@import "styles/_variables";
+
+$height: 60px;
+
+.nav {
+    height: $height;
+    width: 100%;
+    margin: auto;
+    position: fixed;
+}
+
+.container {
+    @include containerMixin;
+
+    .inner {
+        display: flex;
+        flex: 1 auto;
+        flex-direction: row;
+        align-items: center;
+        height: $height;
+    }
+}
+
+.title {
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    overflow-y: hidden;
+    max-height: 100%;
+    justify-content: flex-end;
+
+    ul {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+
+        li {
+            height: 100%;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            padding: 0 8px;
+
+            a {
+                padding: 12px 10px;
+                font-size: 15px;
+                line-height: 20px;
+                color: currentColor;
+                border-radius: 8px;
+                border: 0;
+                cursor: pointer;
+                background-color: transparent;
+                text-decoration: none;
+                text-align: left;
+            }
+        }
+    }
+}
