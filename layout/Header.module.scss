@@ -46,15 +46,11 @@ $height: 60px;
 
             a {
                 padding: 12px 10px;
-                font-size: 15px;
-                line-height: 20px;
-                color: currentColor;
-                border-radius: 8px;
+                font-size: $text-base-font-size;
                 border: 0;
                 cursor: pointer;
                 background-color: transparent;
                 text-decoration: none;
-                text-align: left;
             }
         }
     }
