@@ -32,10 +32,12 @@ class Draw extends React.Component<DrawProps, DrawState> {
                     this.addPonixToStorage(p);
                 }
 
-                this.setState({
-                    stage: isPonixEmpty(p) ? "failed" : "success",
-                    ponix: p,
-                });
+                setTimeout(() => {
+                    this.setState({
+                        stage: isPonixEmpty(p) ? "failed" : "success",
+                        ponix: p,
+                    });
+                }, 2 * 1000);
             });
     };
 
