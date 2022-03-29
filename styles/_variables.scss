@@ -117,9 +117,9 @@ $breakpoint-desktop: 1024px;
 
 @mixin buttonMixin {
     padding: 1rem 2.5rem;
-    border-radius: 1rem;
+    border-radius: 0.75rem;
     border: none;
-    font-size: $text-lg-font-size;
+    font-size: $text-base-font-size;
     font-weight: 500;
     background-color: $color-primary;
     cursor: pointer;
