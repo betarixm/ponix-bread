@@ -115,6 +115,16 @@ $breakpoint-desktop: 1024px;
     }
 }
 
+@mixin buttonMixin {
+    padding: 1rem 2.5rem;
+    border-radius: 1rem;
+    border: none;
+    font-size: $text-lg-font-size;
+    font-weight: 500;
+    background-color: $color-primary;
+    cursor: pointer;
+}
+
 @keyframes shake {
     0% {
         transform: rotate(0deg);
