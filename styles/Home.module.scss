@@ -1,0 +1,70 @@
+@import "styles/_variables";
+
+.container {
+    @include containerMixin;
+
+    .inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+}
+
+.title {
+    margin-bottom: 5rem;
+
+    h1 {
+        text-align: center;
+        font-size: $text-3xl-font-size;
+        margin: 0 0 0.5rem;
+        word-break: keep-all;
+
+        @include tablet {
+            font-size: $text-4xl-font-size;
+        }
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 2.5rem;
+
+    .image {
+        $width: 10rem;
+        width: $width;
+
+        img {
+            transform-origin: 50% 100%;
+            animation-name: shake;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-delay: 0.5s;
+        }
+
+        &::before {
+            opacity: 0.2;
+            content: "";
+            border-radius: $width;
+            display: inline-block;
+            position: absolute;
+            background-color: #ffffff;
+            width: $width;
+            height: $width;
+            transform: scaleY(0.4) translateY(calc(#{$width} / 4 * 3));
+            filter: blur(20px);
+        }
+    }
+
+    button {
+        padding: 1rem 2.5rem;
+        border-radius: 1rem;
+        border: none;
+        font-size: $text-lg-font-size;
+        font-weight: 500;
+        background-color: $color-primary;
+    }
+}
