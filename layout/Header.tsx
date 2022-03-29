@@ -13,7 +13,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                 <div className={styles.container}>
                     <div className={styles.inner}>
                         <div className={styles.title}>
-                            <Link href={"/"}>Ponix Bread</Link>
+                            <Link href={"/"}>포닉스빵</Link>
                         </div>
                         <div className={styles.content}>
                             <ul>
