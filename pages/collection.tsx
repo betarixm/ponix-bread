@@ -3,7 +3,8 @@ import type { Ponix } from "../typings/models";
 import React from "react";
 import { Layout } from "../layout";
 import { LOCALSTORAGE_KEY } from "../constants/strings";
-import PonixView from "../components/PonixView";
+import styles from "../components/draw/Draw.module.scss";
+import Image from "next/image";
 
 interface CollectionProps {}
 
@@ -36,8 +37,20 @@ class Collection extends React.Component<CollectionProps, CollectionState> {
     render = () => {
         return (
             <Layout title={"Collection"}>
-                {this.state.ponixList.map((p: Ponix) => (
-                    <PonixView ponix={p} key={p.id} />
+                {this.state.ponixList.map((ponix: Ponix) => (
+                    <div className={styles.ponix} key={ponix.id}>
+                        <div className={styles.image}>
+                            <Image
+                                src={`/ponix/${ponix.img}`}
+                                width={"1080px"}
+                                height={"1080px"}
+                                layout={"responsive"}
+                                alt={`${ponix.no} ${ponix.name}`}
+                            />
+                        </div>
+                        <div className={styles.no}>{ponix.no}</div>
+                        <div className={styles.name}>{ponix.name}</div>
+                    </div>
                 ))}
             </Layout>
         );
