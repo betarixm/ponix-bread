@@ -1,22 +1,50 @@
 import type { Ponix } from "../typings/models";
 
 import React from "react";
-
-import { GetServerSideProps } from "next";
-import { internalHandler as apiDraw } from "./api/ponix/draw";
+import Router from "next/router";
 
 import { Layout } from "../layout";
-
+import { DrawFailed, DrawInit, DrawLoading, DrawSuccess } from "../components/draw";
+import { EmptyPonix } from "../constants/ponix";
 import { LOCALSTORAGE_KEY } from "../constants/strings";
-import PonixView from "../components/PonixView";
+import { isPonixEmpty } from "../utils/ponix";
 
-interface DrawProps {
+interface DrawProps {}
+
+interface DrawState {
+    stage: "init" | "loading" | "success" | "failed";
     ponix: Ponix;
 }
 
-interface DrawState {}
-
 class Draw extends React.Component<DrawProps, DrawState> {
+    state: DrawState = {
+        stage: "init",
+        ponix: EmptyPonix,
+    };
+
+    drawCallback = () => {
+        this.setState({ stage: "loading" });
+
+        fetch(`/api/ponix/draw`, { method: "POST" })
+            .then((res) => res.json())
+            .then((p: Ponix) => {
+                if (!isPonixEmpty(p)) {
+                    this.addPonixToStorage(p);
+                }
+
+                this.setState({
+                    stage: isPonixEmpty(p) ? "failed" : "success",
+                    ponix: p,
+                });
+            });
+    };
+
+    redirectCallback = () => {
+        const res = Router.push("/collection");
+    };
+
+    redrawCallback = this.drawCallback;
+
     addPonixToStorage = (ponix: Ponix) => {
         let items = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY) || "[]");
         localStorage.setItem(
@@ -25,37 +53,32 @@ class Draw extends React.Component<DrawProps, DrawState> {
         );
     };
 
-    isDrawSuccess = (ponix: Ponix) => {
-        return ponix.no !== -1;
-    };
-
-    componentDidMount = () => {
-        if (this.isDrawSuccess(this.props.ponix)) {
-            this.addPonixToStorage(this.props.ponix);
+    content: React.FC<{ stage: DrawState["stage"] }> = ({ stage }) => {
+        if (stage === "init") {
+            return <DrawInit onDrawPressed={this.drawCallback} />;
+        } else if (stage === "loading") {
+            return <DrawLoading />;
+        } else if (stage === "success") {
+            return (
+                <DrawSuccess
+                    ponix={this.state.ponix}
+                    onRedrawPressed={this.redrawCallback}
+                    onRedirectPressed={this.redirectCallback}
+                />
+            );
+        } else if (stage === "failed") {
+            return <DrawFailed onRedrawPressed={this.redrawCallback} />;
         }
+        return <></>;
     };
 
     render = () => {
-        const { ponix } = this.props;
-
-        const success = (
-            <>
-                <PonixView ponix={ponix} />
-            </>
+        return (
+            <Layout title={"Draw"}>
+                <this.content stage={this.state.stage} />
+            </Layout>
         );
-
-        const failed = <>Failed!</>;
-
-        return <Layout title={"Draw"}>{this.isDrawSuccess(ponix) ? success : failed}</Layout>;
     };
 }
-
-export const getServerSideProps: GetServerSideProps<DrawProps> = async (context) => {
-    return {
-        props: {
-            ponix: apiDraw(),
-        },
-    };
-};
 
 export default Draw;

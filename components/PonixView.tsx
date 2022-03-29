@@ -17,8 +17,8 @@ class PonixView extends React.Component<PonixViewProps, PonixViewState> {
                 <div>
                     <Image
                         src={`/ponix/${ponix.img}`}
-                        alt={`${ponix.no} ${ponix.name}`}
                         layout={"fill"}
+                        alt={`${ponix.no} ${ponix.name}`}
                     />
                 </div>
                 <div>{ponix.no}</div>

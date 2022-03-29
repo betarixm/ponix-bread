@@ -13,6 +13,7 @@ export const internalHandler: () => Ponix = () => {
 
 export const handler = (req: NextApiRequest, res: NextApiResponse<Ponix | ApiError>) => {
     if (req.method === "POST") {
+        res.setHeader("Cache-Control", "no-store");
         res.status(200).json(internalHandler());
     } else {
         res.status(405).json({
