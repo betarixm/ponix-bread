@@ -7,6 +7,8 @@ $height: 60px;
     width: 100%;
     margin: auto;
     position: fixed;
+    z-index: 10;
+    backdrop-filter: blur(10px);
 }
 
 .container {
@@ -22,6 +24,7 @@ $height: 60px;
 }
 
 .title {
+    padding: 0 20px;
 }
 
 .content {
