@@ -51,6 +51,7 @@ $height: 60px;
                 cursor: pointer;
                 background-color: transparent;
                 text-decoration: none;
+                color: lighten($color-text-gray, 10);
             }
         }
     }
