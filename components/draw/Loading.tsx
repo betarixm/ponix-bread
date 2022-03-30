@@ -14,7 +14,7 @@ class Loading extends React.Component<LoadingProps, LoadingState> {
                     <div className={styles.content}>
                         <div className={styles.bread}>
                             <Image
-                                src={"/ponix/test.png"}
+                                src={"/bread.png"}
                                 width={"1080px"}
                                 height={"1080px"}
                                 layout={"responsive"}
