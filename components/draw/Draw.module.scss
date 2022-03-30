@@ -1,16 +1,5 @@
 @import "styles/_variables";
 
-.container {
-    @include containerMixin;
-
-    .inner {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-}
-
 .content {
     width: 100%;
 
@@ -33,7 +22,7 @@
         }
     }
 
-    .ponix {
+    .portrait {
         display: flex;
         flex-direction: column;
         grid-gap: 1rem;
@@ -44,38 +33,10 @@
         }
 
         .name {
+            line-height: $text-base-line-height;
             font-weight: 200;
-
             strong {
                 font-weight: 500;
-            }
-        }
-    }
-
-    .buttons {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        grid-gap: 0.75rem;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-
-        @include tablet {
-            flex-direction: column;
-        }
-
-        button {
-            @include buttonMixin;
-            width: 100%;
-            margin: auto;
-
-            &.gray {
-                background-color: $color-background-dim;
-            }
-
-            @include tablet {
-                margin: auto;
-                width: 50%;
             }
         }
     }

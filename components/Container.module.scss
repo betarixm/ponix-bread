@@ -1,0 +1,39 @@
+@import "styles/_variables";
+
+.container {
+    @include containerMixin;
+
+    .inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    grid-gap: 0.75rem;
+    margin: 2rem auto auto;
+    @include tablet {
+        flex-direction: column;
+        width: 50%;
+    }
+
+    button {
+        @include buttonMixin;
+        width: 100%;
+        margin: auto;
+
+        &.gray {
+            background-color: $color-background-dim;
+        }
+
+        @include tablet {
+            margin: auto;
+            width: 50%;
+        }
+    }
+}

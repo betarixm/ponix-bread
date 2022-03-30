@@ -2,8 +2,9 @@ import React from "react";
 import { Ponix } from "../../typings/models";
 
 import styles from "./Draw.module.scss";
+import containerStyles from "../Container.module.scss";
 import Image from "next/image";
-import Container from "./Container";
+import Container from "../Container";
 
 interface DrawSuccessProps {
     onRedrawPressed(): void;
@@ -23,14 +24,19 @@ class Success extends React.Component<DrawSuccessProps, DrawSuccessState> {
                 title={"신난다~!"}
                 buttons={[
                     <button key={0} onClick={this.props.onRedrawPressed}>
-                        또 뽑아보자
+                        또 해보자
                     </button>,
-                    <button key={1} className={styles.gray} onClick={this.props.onRedirectPressed}>
+                    <button
+                        key={1}
+                        className={containerStyles.gray}
+                        onClick={this.props.onRedirectPressed}
+                    >
                         도감으로
                     </button>,
                 ]}
+                className={styles.content}
             >
-                <div className={styles.ponix}>
+                <div className={styles.portrait}>
                     <div className={styles.image}>
                         <Image
                             src={`/ponix/${ponix.img}`}
@@ -40,10 +46,11 @@ class Success extends React.Component<DrawSuccessProps, DrawSuccessState> {
                             alt={`${ponix.no} ${ponix.name}`}
                         />
                     </div>
-                    <div className={styles.name}>
+                    <p className={styles.name}>
                         <span>No. {ponix.no} </span>
-                        <strong>{ponix.name}</strong>
-                    </div>
+                        <br />
+                        <strong>{ponix.name}</strong>(을)를 뽑았다!
+                    </p>
                 </div>
             </Container>
         );

@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./Draw.module.scss";
-import Container from "./Container";
+import Container from "../Container";
 
 interface DrawFailedProps {
     onRedrawPressed(): void;
@@ -19,6 +19,7 @@ class Failed extends React.Component<DrawFailedProps, DrawFailedState> {
                         다시 시도해보자
                     </button>,
                 ]}
+                className={styles.content}
             >
                 <p>넙죽단이 포닉씰을 훔쳐가버렸다...</p>
             </Container>

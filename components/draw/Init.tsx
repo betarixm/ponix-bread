@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./Draw.module.scss";
 import Image from "next/image";
-import Container from "./Container";
+import Container from "../Container";
 
 interface InitProps {
     onDrawPressed(): void;
@@ -20,6 +20,7 @@ class Init extends React.Component<InitProps, InitState> {
                         포장을 뜯어보자
                     </button>,
                 ]}
+                className={styles.content}
             >
                 <div className={styles.bread}>
                     <Image
