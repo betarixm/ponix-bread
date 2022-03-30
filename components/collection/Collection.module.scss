@@ -1,0 +1,95 @@
+@import "styles/_variables";
+
+@font-face {
+    font-family: "DungGeunMo";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff")
+        format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.content {
+    width: 100%;
+}
+
+.dex {
+    max-width: $content-width / 2;
+    margin: auto;
+
+    .background {
+        position: relative;
+        width: 90%;
+        margin: auto;
+    }
+
+    .overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+        z-index: 1;
+
+        .portrait {
+            position: absolute;
+            width: 32%;
+            left: 30%;
+            top: 38%;
+        }
+
+        .info {
+            position: absolute;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 22%;
+            height: 9%;
+            left: 25.5%;
+            bottom: 12.5%;
+
+            * {
+                color: black;
+                font-family: DungGeunMo, monospace;
+            }
+
+            span {
+                opacity: 0.5;
+                margin-top: 3%;
+                font-size: 1.5vw;
+            }
+
+            .name {
+                opacity: 0.9;
+                display: flex;
+                flex-grow: 1;
+                margin-bottom: 3%;
+                margin-left: 2%;
+                margin-right: 2%;
+                strong {
+                    font-size: 1.5vw;
+                    vertical-align: center;
+                    margin: auto;
+                }
+            }
+        }
+
+        .buttons {
+            opacity: 0.2;
+            position: absolute;
+            bottom: 15%;
+            right: 17%;
+            height: 8%;
+            width: 33%;
+
+            button {
+                height: 100%;
+                width: 50%;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                font-weight: 700;
+            }
+        }
+    }
+}
