@@ -11,6 +11,8 @@ FROM node:16-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+RUN mv resource/constants/* constants/
+RUN mv resource/public/ponix/* public/ponix/
 RUN yarn build
 
 # Production image, copy all the files and run next
