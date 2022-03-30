@@ -3,4 +3,5 @@ export interface Ponix {
     no: number;
     name: string;
     img: string;
+    comment: string;
 }

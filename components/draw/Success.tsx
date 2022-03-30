@@ -50,6 +50,12 @@ class Success extends React.Component<DrawSuccessProps, DrawSuccessState> {
                         <span>No. {ponix.no} </span>
                         <br />
                         <strong>{ponix.name}</strong>(을)를 뽑았다!
+                        <br />
+                        <span className={styles.comment}>
+                            {'"'}
+                            {ponix.comment}
+                            {'"'}
+                        </span>
                     </p>
                 </div>
             </Container>
