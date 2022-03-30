@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    deploy:
+      mode: replicated
+      replicas: 10
+      restart_policy:
+        condition: on-failure
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./conf.d/proxy.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "15000:80"
