@@ -38,11 +38,7 @@ class Collection extends React.Component<CollectionProps, CollectionState> {
         return (
             <Layout title={"Collection"}>
                 <Popup title={"🔔"}>화면을 캡쳐해서 이벤트에 참여하세요!</Popup>
-                {this.state.ponixList.length > 0 ? (
-                    <CollectionDex ponixList={this.state.ponixList} />
-                ) : (
-                    <></>
-                )}
+                <CollectionDex ponixList={this.state.ponixList} />
             </Layout>
         );
     };
