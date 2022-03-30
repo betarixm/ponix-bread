@@ -1,0 +1,3 @@
+[submodule "resource"]
+	path = resource
+	url = git@github.com:betarixm/ponix-bread-resource.git
