@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Layout } from "../layout";
 
 import styles from "../styles/Home.module.scss";
+import ball from "../public/pokeball.webp";
 
 interface HomeProps {}
 
@@ -25,12 +26,7 @@ class Home extends React.Component<HomeProps, HomeState> {
                         </div>
                         <div className={styles.content}>
                             <div className={styles.image}>
-                                <Image
-                                    src={"/pokeball.webp"}
-                                    height={"256px"}
-                                    width={"256px"}
-                                    layout={"responsive"}
-                                />
+                                <Image src={ball} layout={"responsive"} />
                             </div>
                             <button onClick={this.redirectCallback}>포닉씰 뽑으러 가기</button>
                         </div>

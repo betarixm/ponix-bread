@@ -4,6 +4,8 @@ import styles from "./Draw.module.scss";
 import Image from "next/image";
 import Container from "../Container";
 
+import bread from "../../public/bread.png";
+
 interface InitProps {
     onDrawPressed(): void;
 }
@@ -23,12 +25,7 @@ class Init extends React.Component<InitProps, InitState> {
                 className={styles.content}
             >
                 <div className={styles.bread}>
-                    <Image
-                        src={"/bread.png"}
-                        width={"1080px"}
-                        height={"1080px"}
-                        layout={"responsive"}
-                    />
+                    <Image src={bread} width={"1080px"} height={"1080px"} layout={"responsive"} />
                 </div>
             </Container>
         );

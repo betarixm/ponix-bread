@@ -8,6 +8,8 @@ import Container from "../Container";
 import { EmptyPonix } from "../../constants/ponix";
 import { isPonixEmpty } from "../../utils/ponix";
 
+import device from "/public/device.png";
+
 interface DexProps {
     ponixList: Ponix[];
 }
@@ -49,9 +51,7 @@ class Dex extends React.Component<DexProps, DexState> {
                             <div className={styles.overlay}>
                                 <div className={styles.portrait}>
                                     <Image
-                                        src={`/ponix/${ponix.img}`}
-                                        width={"1080px"}
-                                        height={"1080px"}
+                                        src={ponix.img}
                                         layout={"responsive"}
                                         alt={`${ponix.no} ${ponix.name}`}
                                     />
@@ -71,13 +71,7 @@ class Dex extends React.Component<DexProps, DexState> {
                             </div>
                         )}
 
-                        <Image
-                            src={"/device.png"}
-                            width={"922px"}
-                            height={"1303px"}
-                            layout={"responsive"}
-                            alt={"도감 배경"}
-                        />
+                        <Image src={device} layout={"responsive"} alt={"도감 배경"} />
                     </div>
                 </div>
             </Container>

@@ -39,9 +39,7 @@ class Success extends React.Component<DrawSuccessProps, DrawSuccessState> {
                 <div className={styles.portrait}>
                     <div className={styles.image}>
                         <Image
-                            src={`/ponix/${ponix.img}`}
-                            width={"1080px"}
-                            height={"1080px"}
+                            src={ponix.img}
                             layout={"responsive"}
                             alt={`${ponix.no} ${ponix.name}`}
                         />
