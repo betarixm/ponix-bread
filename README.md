@@ -3,7 +3,7 @@ Ponix Bread
 
 [![POSTECH](https://img.shields.io/badge/SES-POSTECH-c80150)](https://postech.ac.kr)
 
-![Bread](public/bread.png)
+<img src="public/bread.png" width="300px">
 
 > Powered by — [react-notion-x](https://github.com/NotionX/react-notion-x) and [next.js](https://nextjs.org/) with 💙
 
